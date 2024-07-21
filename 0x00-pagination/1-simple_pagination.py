@@ -27,13 +27,15 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        pass
+        """ ensuring the dataset returns an integer """
+        
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
+        return self.data
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """ indexing page """
-    assert isinstance(page, int) and page > 0
-    assert isinstance(page_size, int) and page_size > 0
     start = (page - 1) * page_size
     end = page * page_size
     return (start, end)
