@@ -5,5 +5,5 @@
 def index_range(page, page_size):
     """ indexing page """
     start = (page - 1) * page_size
-    end = page + page_size
+    end = page + page_size - 1
     return (start, end)
