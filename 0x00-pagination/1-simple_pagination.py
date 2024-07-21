@@ -30,7 +30,8 @@ class Server:
         """ ensuring the dataset returns an integer """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
-        if page is >= len(dataset):
+
+        if page is > len(dataset):
             return []
 
         return self.dataset()
