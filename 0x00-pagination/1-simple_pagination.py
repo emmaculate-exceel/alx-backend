@@ -30,12 +30,14 @@ class Server:
         """ ensuring the dataset returns an integer """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
-        dataset = self.dataset()
-        start, end = index_range(page, page_size)
-        if start >= len(dataset):
-            return []
 
-        return dataset[start:end]
+        dataset = self.dataset()
+        try:
+            start, end = index_range(page, page_size)
+            # if start >= len(dataset):
+            return []
+        except IndexError:
+            return dataset[start:end]
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
