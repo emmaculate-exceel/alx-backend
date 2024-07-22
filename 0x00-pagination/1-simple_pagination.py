@@ -35,9 +35,9 @@ class Server:
         try:
             start, end = index_range(page, page_size)
             # if start >= len(dataset):
-            return []
-        except IndexError:
             return dataset[start:end]
+        except IndexError:
+            return []
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
