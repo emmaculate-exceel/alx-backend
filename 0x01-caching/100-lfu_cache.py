@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """ Using a least frequent usage caching system """
+from base_caching import BaseCaching
 
 
 class LFUCache(BaseCaching):
