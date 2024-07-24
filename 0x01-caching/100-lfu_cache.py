@@ -20,9 +20,11 @@ class LFUCache(BaseCaching):
         """ delete least frequent """
         if self.cache_data:
             min_freq = min(self.frequency.values())
-            items_with_min_freq = [key for key,  freq in self.frequency.items() if freq == min_freq]
+            items_with_min_freq = [key for key, freq in self
+                                   .frequency.items() if freq == min_freq]
             if len(items_with_min_freq) > 1:
-                lru_key = min(items_with_min_freq, key=lambda k: self.lfu_count.get(k, 0))
+                lru_key = min(items_with_min_freq,
+                              key=lambda k: self.lfu_count.get(k, 0))
                 del self.cache_data[lru_key]
                 del self.frequency[lru_key]
                 print(f"DISCARD: {lru_key}")
@@ -30,9 +32,9 @@ class LFUCache(BaseCaching):
                 lfu_key = items_with_min_freq[0]
                 del self.cache_data[lfu_key]
                 del self.frequency[lfu_key]
-                print(f"DISCARD: {lfu_key"})
+                print(f"DISCARD: {lfu_key}")
 
-    def put(sel, key, item):
+    def put(self, key, item):
         """ put value and keys """
         if key is None or item is None:
             return
@@ -44,12 +46,10 @@ class LFUCache(BaseCaching):
         self._update_frequency(key)
         self._lfu_count[key] = len(self.cache_data)
 
-
     def get(self, key):
         """ get keys """
         if key is None or key not in self.cache_data:
             return None
-
 
         self._update_frequency(key)
         return self.cache_data[key]
