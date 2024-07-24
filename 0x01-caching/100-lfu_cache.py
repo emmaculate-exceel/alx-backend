@@ -40,12 +40,12 @@ class LFUCache(BaseCaching):
         if key is None or item is None:
             return
 
-        if len(self, cache_data) >= self.MAX_ITEMS:
+        if len(self.cache_data) >= self.MAX_ITEMS:
             self._remove_least_frequent()
 
         self.cache_data[key] = item
         self._update_frequency(key)
-        self._lfu_count[key] = len(self.cache_data)
+        self.lfu_count[key] = len(self.cache_data)
 
     def get(self, key):
         """ get keys """
