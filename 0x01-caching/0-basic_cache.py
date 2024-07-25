@@ -6,7 +6,6 @@ from base_caching import BaseCaching
 class BasicCache(BaseCaching):
     """ Basic cache """
     def __init__(self):
-        """ initializing the object """
         super().__init__()
         self.cache_data[key] = item
 
