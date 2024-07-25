@@ -11,13 +11,14 @@ class BasicCache(BaseCaching):
     
     def __init__(self):
         super().__init__()
-        self.cache_data[key] = item
+        self.cache_data = {}
 
     def put(self, key, item):
         """ put method """
         if key is not None or item is not None:
-            value = self.cache_data.get(key)
-            return value
+            return self.cache_data[key] = item
+        else:
+            pass
 
     def get(self, key):
         """ get method """
