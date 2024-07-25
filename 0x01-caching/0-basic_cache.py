@@ -2,7 +2,8 @@
 """ a class for the caching system """
 
 
-from base_caching import BaseCaching
+BaseCaching = __import__('base_caching').BaseCaching
+# from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
