@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# A flask app for a single route
+""" A flask app for a single route"""
 
 from flask import Flask, render_template
 
