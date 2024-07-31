@@ -14,10 +14,11 @@ class Config:
     BABEL_DEFAULT_LOCALE = 'UTC'
 
 
-def get_locale():
-    """ select language """
-    return request.accept_languages.best_match(
-        app.config['LANGUAGES'])
-
+@app.route('/', methods=['GET'], strict_slashes=False)
+def index():
+    """
+    hello world
+    """
+    return render_template('1-index.html')
 
 app.config.from_object(Config)
