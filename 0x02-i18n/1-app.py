@@ -2,7 +2,7 @@
 """ babel object """
 from flask import request, render_template
 from flask_babel import Babel
-
+import babel
 
 app = Flask(__name__)
 babel = Babel(app, locale_selector=get_locale)
