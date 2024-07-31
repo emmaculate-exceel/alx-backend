@@ -14,6 +14,7 @@ class Config:
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
+app.config.from_object(Config)
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index():
@@ -23,5 +24,5 @@ def index():
     return render_template('1-index.html')
 
 
-app.config.from_object(Config)
-
+if __name__ == "__main__":
+    app.run()
